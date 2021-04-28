@@ -1,0 +1,41 @@
+.container {
+    margin-top: 4rem;
+    label {
+        font-size: 20px;
+    }
+    .form-control {
+        height: calc(2.5em + 0.75rem + 2px);
+        font-size: 18px;
+    }
+    button {
+        width: 160px;
+        min-height: 52px;
+        letter-spacing: 1px;
+        font-size: 20px;
+    }
+    .submit-btn {
+        float: right;
+    }
+    .custom-table {
+        margin-top: 6rem;
+        table {
+            margin-top: 2rem;
+            th {
+                background: #007bff;
+                color: #fff;
+                font-weight: 400;
+                font-size: 22px;
+                letter-spacing: 1px;
+                border: 1px solid #007bff;
+            }
+            td {
+                font-size: 20px;
+                letter-spacing: .6px;
+                border: 1px solid #007bff;
+            }
+            mat-icon {
+                cursor: pointer;
+            }
+        }
+    }
+}
