@@ -72,6 +72,17 @@ export class AppComponent implements OnInit {
     }
   }
 
+  addUser(): void {
+    this.form = this.fb.group({
+      id: [''],
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
+      age: ['', Validators.required],
+    });
+    this.addMode = true;
+    this.editMode = false;
+  }
+
   trackUsers(index: number, user: User): any {
     return user.id;
   }
