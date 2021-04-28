@@ -1,63 +1,51 @@
 <div class="container">
-    <form>
-        <div class="form-group">
-            <label for="name">First Name</label>
-            <input type="text" id="name" class="form-control">
-        </div>
-        <div class="form-group">
-            <label for="surname">Last Name</label>
-            <input type="text" id="surname" class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label for="age">Age</label>
-            <input type="number" id="age" class="form-control">
-        </div>
-        <button type="button" class="btn btn-primary mt-4 submit-btn">Submit</button>
-    </form>
-
-
-    <div class="custom-table">
-        <button type="button" class="btn btn-primary mt-4">New User</button>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Surname</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">
-                        <mat-icon routerLink="/form">edit</mat-icon>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Juan</td>
-                    <td>Sebastian</td>
-                    <td>18</td>
-                    <td scope="col">
-                        <mat-icon routerLink="/form">edit</mat-icon>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Pedro</td>
-                    <td>Guzman</td>
-                    <td>27</td>
-                    <td scope="col">
-                        <mat-icon routerLink="/form">edit</mat-icon>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Ana</td>
-                    <td>Perez</td>
-                    <td>30</td>
-                    <td scope="col">
-                        <mat-icon routerLink="/form">edit</mat-icon>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+  <form [formGroup]="form">
+    <input hidden formControlName="id">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" class="form-control">
     </div>
+    <div class="form-group">
+      <label for="surname">Surname</label>
+      <input type="text" id="surname" formControlName="surname" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" id="age" formControlName="age" class="form-control">
+    </div>
+    <button (click)="submitForm()" type="button" class="btn btn-primary mt-4 submit-btn">Submit</button>
+  </form>
+
+
+  <div class="custom-table">
+    <!--        <button type="button" class="btn btn-primary mt-4">New User</button>-->
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Age</th>
+        <th scope="col">
+          <mat-icon routerLink="/form">edit</mat-icon>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <ng-container *ngIf="users">
+        <tr *ngFor="let user of users; trackBy:trackUsers">
+          <td>{{user?.name}}</td>
+          <td>{{user?.surname}}</td>
+          <td>{{user?.age}}</td>
+          <!--suppress HtmlDeprecatedAttribute -->
+          <td scope="col">
+            <mat-icon class="cursor-pointer" (click)="updateUser(user)">edit</mat-icon>
+          </td>
+        </tr>
+      </ng-container>
+      </tbody>
+    </table>
+  </div>
 
 
 </div>

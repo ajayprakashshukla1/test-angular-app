@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
+import {ReactiveFormsModule} from '@angular/forms';
+import {UserModule} from './services/user/user.module';
+import {HttpClientModule} from '@angular/common/http';
 const routes = [
   {
       path: 'app',
@@ -21,6 +24,9 @@ const routes = [
     MatIconModule,
     BrowserAnimationsModule,
     RouterModule.forChild(routes),
+    ReactiveFormsModule,
+    HttpClientModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
